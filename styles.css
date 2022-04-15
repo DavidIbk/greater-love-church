@@ -1,0 +1,1686 @@
+html{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+a{
+  text-decoration: none;
+}
+
+.font-awesome{
+  color: #274f73;
+  display: inline-block;
+}
+
+footer{
+  height: 30vh;
+  background-color: #274f73;
+  color: #fff;
+  padding: 30px;
+}
+
+.footer{
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  justify-content: space-around;
+  align-items: baseline;
+  background-color: #274f73;
+}
+
+.footer-note{
+  display: inline-block;
+  text-align: center;
+}
+
+.footer-img{
+  display: block;
+  margin: 5px auto 20px;
+}
+
+@media screen and (max-width: 768px){
+  .footer{
+    display: block;
+    height: 100%;
+    margin-bottom: 50px;
+  }
+  .footer-note{
+    display: block;
+  }
+}
+
+/* DESKTOP VIEW OF OUR NAVBAR */
+
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: #274f73;
+  font-family: "Poppins", sans-serif;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+}
+
+.nav-links{
+   display: flex; /* THIS MAKES OUR NAVLINKS HORIZONTAL */
+   width: 80%; /* ONCE HORIZONTAL, THIS INCREASES THE WIDTH OF OUR LINKS (BEAR IN MIND THE MOBILE VIEW WHEN SETTING THIS!) */
+   justify-content: space-around; /* ONCE INCREASED, THIS SPACES OUT OUR LINKS MAKING THEM MORE ORGANIZED */
+}
+
+.nav-links li{
+  list-style: none; /* THIS GETS RID OF THE BULLET POINTS IN FRONT OF EACH NAVLINK */
+}
+
+.gold{
+  color: #ead94c;
+}
+
+.nav-links a:hover{
+  color: #ead94c;
+}
+
+.nav-links .gold{
+  color: #ead94c;
+}
+
+.nav-links .gold:hover{
+  color: #fff;
+}
+
+.nav-links a{
+  color: #fff; /* THIS CHANGES THE COLOUR OF OUR NAVLINS TO WHITE */
+  text-decoration: none; /* THIS GETS RID OF THE UNDERLINE ON OUR NAVLINKS */
+  letter-spacing: 2px; /* THIS SPACES OUT THE ALPHABETS IN THE WORDINGS OF OUR NAVLINKS */
+  font-size: 14px;
+  text-transform: uppercase; /*this capitalizes the text in our navbar*/
+}
+
+.burger{
+  display: none; /* THIS HIDES OUR BURGER ICON ON THE DESKTOP VIEW */
+}
+
+.burger div{ /* THIS CREATES A BURGER ICON FOR THE MOBILE VIEW OF OUR NAVBAR*/
+  width: 25px; /*SETS THE WIDTH OF EACH LINE OF THE BURGER ICON*/
+  height: 3px; /*SETS THE HEIGHT OF EACH LINE OF THE BURGER ICON*/
+  background-color: #fff; /*SETS THE BACKGROUND COLOUR OF THE BURGER ICON*/
+  margin: 5px; /*CREATES SPACE BETWEEN EACH LINE OF THE BURGER ICON*/
+  transition: 0.5s ease; /*THIS CAUSES THERE TO BE A GRADUAL PROGRESSION IN THE ANIMATION OF OUR BURGER ICON*/
+}
+
+
+
+
+
+/* MOBILE VIEW OF OUR NAVBAR */
+
+@media screen and (max-width: 968px) {
+  body{
+    overflow-x: hidden; /*this hides away the dropdown that overflows the screen to the right on the x-axis (horizontal axis)*/
+  }
+
+  nav .logo img {
+    width: 70%;
+  }
+
+  .nav-links{ /* THIS CODES (I.E. POSITION, RIGHT AND HEIGHT MAKE THE NAVLINKS AND BUTTTON DISAPPEAR ON MOBILE)). IT ALSO CREATES THE MOBILE DROPDOWN NAVBAR */
+    position: absolute;
+    right: 0;
+    height: 82vh; /*creates the height of the dropdown*/
+    width: 100%; /*creates the width of the dropdown*/
+    margin-top: 0; /*ensures that there is no spacing between the dropdown and the navbar above it*/
+    top: 8vh; /*This carries the dropdown up and down vertically. It should correspond to min-height used for the nav */
+    background-color: #274f73;
+    display: flex; /*serves as a pre-creator to the dropdown*/
+    flex-direction: column; /*creates the dropdown*/
+    align-items: center; /*This makes our navlinks and buttton come to the center of the dropdown*/
+    transform: translateY(-110%); /*this moves the whole dropdown off the screen*/
+    transition: transform 0.5s ease-in; /*This transitions the transform. That is, the dropdown leaves the screen gradually and not at once*/
+    z-index: 20; /*This makes the dropdown to be above everything on screen*/ /*apparently, this doesn't work. our dropdown works with the z-index of .nav and not .nav-links*/
+}
+  .nav-links li{
+    opacity: 0; /*this modifies our dropdown such that at first the links and butttons are not seen, before they slowly appear*/
+  }
+
+  .burger{
+    display: inline; /*This makes our burger icon reappear after the dropdown has been removed*/
+  }
+}
+
+
+/*BACK TO DESKTOP VIEW*/
+
+.nav-active{ /*note that this class is only activated by javascript*/
+  transform: translateY(0%); /*when we click on the burger, the navigation should get the zero transform, that is it comes onscreen*/
+}
+
+@keyframes navLinkFade {  /* Animation for our links inside our navbar dropdown. Used inside Javascript */
+  from{
+      opacity: 0;
+      transform: translateY(50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+ /* Animating our burger NOTE: FOLLOW THE SYNTAX HERE RELIGIOUSLY!*/
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px,6px); /*while the rotate(45deg) tries to rotate the line, the translate function has some impact on it that I don't understand but which causes it not to rotate */
+}
+.toggle .line2 {
+  opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px,-6px);
+}
+
+
+/*CAROUSEL SECTION*/
+.hero-1{
+  background-image: url(https://images2.imgbox.com/93/f2/yWgW0och_o.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0,0,0,0.6);
+  background-blend-mode: darken;
+  height: 100vh;
+  padding: 20%;
+}
+
+.hero-2{
+  background-image: url(https://images2.imgbox.com/54/e4/iE1DVizG_o.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0,0,0,0.6);
+  background-blend-mode: darken;
+  height: 100vh;
+  padding: 20%;
+}
+
+@media screen and (max-width: 968px){
+  .hero-1,.hero-2{
+    padding: 30%;
+  }
+}
+
+.carousel-text{
+  font-family: "Roboto Condensed", sans-serif;
+  color: #fff;
+  z-index: 1;
+  text-align: center;
+}
+
+
+.big-title{
+  font-weight: 600;
+}
+
+/*EVENTS SECTION*/
+.btn{
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  background: #274f73;
+  padding: 20px 20px 20px 20px;
+  text-decoration: none;
+  width: 15rem;
+}
+
+.btn:hover{
+  background: #ead94c;
+  text-decoration: none;
+}
+
+.events{
+  padding: 2%;
+  background-color: #51a3a3;
+  color: white;
+  position: relative;
+}
+
+.event-items{
+  display: inline-block;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .btn{
+    width: 100%;
+    padding: 8px 20px;
+  }
+
+  .last-week-sermon .btn{
+    width: 12rem;
+    padding: 15px 20px;
+  }
+}
+
+.events-btn{
+  position: absolute;
+  bottom: 35%;
+  right: 50px;
+}
+
+@media screen and (max-width: 768px){
+  .events-btn{
+    position: static;
+  }
+}
+
+/*LAST WEEK SERMON SECTION*/
+.last-week-sermon{
+  padding: 2%;
+  opacity: 0;
+  transform: scale(0.1);
+  transition: all 2s ease-in;
+}
+
+.last-week-sermon-active{
+  opacity: 1;
+  transform: scale(1);
+}
+
+.last-week-sermon-img{
+  width: 100%;
+  height: 100%;
+}
+
+.sermons{
+  margin-bottom: 0;
+}
+
+.underline1{
+  height: 5px;
+  width: 65px;
+  background-color: #ead94c;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.last-week-sermon-text{
+  padding-top: 8%;
+}
+
+
+
+/*OUR MINISTRIES SECTION*/
+.our-ministries{
+  margin: 40px 0;
+}
+
+.our-ministries-title {
+  text-align: center;
+}
+
+.underline2{
+  height: 5px;
+  width: 110px;
+  background-color: #ead94c;
+  margin: 0 auto 15px;
+}
+
+.our-ministries-title-wordings{
+  margin-bottom: 0;
+}
+
+.col-lg-6{
+  padding: 2% 0 2% 2%;
+}
+
+.col-lg-12{
+  padding-left: 2%;
+}
+
+.children-ministry{
+  background-image: url(https://images2.imgbox.com/a8/48/WavQsypt_o.jpg);
+  background-size: cover;
+  background-color: rgba(0,0,0,0.4);
+  background-blend-mode: darken;
+  height: 50vh;
+  position: relative;
+}
+
+.women-ministry{
+  background-image: url(https://images2.imgbox.com/d7/dc/huxeNNBq_o.jpg);
+  background-size: cover;
+  background-color: rgba(0,0,0,0.4);
+  background-blend-mode: darken;
+  height: 50vh;
+  position: relative;
+}
+
+.men-ministry{
+  background-image: url(https://images2.imgbox.com/1d/59/17CukcED_o.jpg);
+  background-size: cover;
+  background-color: rgba(0,0,0,0.4);
+  background-blend-mode: darken;
+  height: 50vh;
+  position: relative;
+}
+
+.our-ministries-row-1{
+  padding: 0;
+  margin: 0 2% 0 0;
+  color: #fff;
+}
+
+.our-ministries-row-2{
+  padding: 1%;
+  margin: 0;
+  color: #fff;
+}
+
+.inline-block{
+  display: inline-block;
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+.text-our-ministries{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.our-ministries-button{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+@media screen and (max-width: 768px){
+  .our-ministries-button{
+    position: absolute;
+    padding: 10px 10px;
+    width: 7rem;
+  }
+}
+
+/*OUR GALLERY SECTION*/
+.wrapper{
+  width: 100%;
+}
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+}
+.gallery .image{
+  padding: 1px;
+  width: calc(100% / 4);
+  cursor: pointer;
+}
+.gallery .image span{
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+.gallery .image img{
+  width: 100%;
+  vertical-align: middle;
+  transition: all 0.3s ease;
+}
+.gallery .image:hover img{
+  transform: scale(1.1);
+}
+
+.preview-box{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  background: #fff;
+  max-width: 700px;
+  width: 70%;
+  z-index: 15; /*always ensure that the preview box's z-index is greater than that of the navbar*/
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 3px;
+  padding: 0 5px 5px 5px;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+.preview-box.show{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+  transition: all 0.3s ease;
+}
+.preview-box .details{
+  display: flex;
+  align-items: center;
+  padding: 12px 15px 12px 10px;
+  justify-content: space-between;
+}
+.preview-box .details .title{
+  display: flex;
+  font-size: 18px;
+  font-weight: 400;
+}
+.details .title p{
+  margin: 0 5px;
+}
+.details .title p.current-img{
+  font-weight: 500;
+}
+.details .icon{
+  color: #007bff;
+  font-size: 20px;
+  cursor: pointer;
+}
+.preview-box .image-box{
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+.image-box .slide{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  height: 50px;
+  width: 60px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 3px;
+}
+.slide.prev{
+  left: 0;
+}
+.slide.next{
+  right: 0;
+}
+.image-box img{
+  width: 100%;
+  border-radius: 0 0 3px 3px;
+}
+.shadow{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  display: none;
+  background: rgba(0,0,0,0.45);
+}
+
+@media(max-width: 1000px){
+  .gallery .image{
+    width: calc(100% / 2);
+  }
+}
+@media(max-width: 600px){
+  .gallery .image{
+    width: calc(100% / 2);
+    padding: 4px;
+  }
+}
+
+.new-section-title{
+  text-align: center;
+  margin:3em auto 1.2em;
+}
+
+.new-section-title-wordings{
+  margin-bottom: 0;
+}
+
+.underline3{
+  height: 5px;
+  width: 86px;
+  background-color: #ead94c;
+  margin: 0 auto 15px;
+}
+
+
+/*TESTIMONIALS SECTION*/
+.testimonials{
+  margin: 5em 0 1.2em;
+  background-color: #dd7373;
+}
+
+.underline4{
+  height: 5px;
+  width: 83px;
+  background-color: #ead94c;
+  margin: 0 auto 15px;
+}
+
+.testimonial-body-text{
+    background-color: #dd7373;
+    width: auto;
+    color: #fff;
+    padding: 5%;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.testimonials-body{
+  display: grid;
+  grid-template-columns: 40% 60%;
+  height: 100%;
+}
+
+@media screen and (max-width: 968px){
+  .testimonials-body{
+    display: block; /*this gets rid of the grid system for the mobile view and makes our testimonial image lie on top of the testimonial body text*/
+  }
+  .testimonial-image{
+    display: block;
+    height: 500px;
+  }
+}
+
+.testimonial-image{
+  background-image: url(https://images2.imgbox.com/60/56/wJFRam3g_o.jpg);
+  background-size: cover;
+  background-position: left;
+  background-attachment: fixed;
+  clip-path: polygon(0% 0%, 80% 0%, 100% 50%, 80% 100%, 0% 100%);
+}
+
+@media screen and (max-width: 768px){
+  .testimonial-image{
+    clip-path: polygon(0% 0%, 100% 0, 100% 80%, 50% 100%, 0 80%);
+  }
+}
+
+.testimonial-body-text .new-section-title{
+  text-align: justify;
+  margin: 0 auto 3em;
+}
+
+.testimonial-cards{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 5px;
+}
+
+.card{
+  background-color: #dd7373;
+  display: inline-block;
+  margin: auto 20px;
+}
+
+@media screen and (max-width: 768px){
+  .testimonial-cards{
+    display: block;
+  }
+
+  .card{
+    margin: 15px 10px;
+    max-width: 18rem;
+  }
+}
+
+.card-img-top{
+  border: 1px solid #ead94c;
+  padding: 5px;
+}
+
+.card-body{
+  border: 1px solid #dd7373;
+}
+
+
+
+/*OUR BLOG SECTION*/
+.our-blog-row{
+  color: #fff;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-column-gap: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+@media screen and (max-width: 1000px){
+  .our-blog-row{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-row-gap: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .our-blog-row{
+    grid-template-columns: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.underline5{
+  height: 5px;
+  width: 83px;
+  background-color: #ead94c;
+  margin: 0 0 15px;
+}
+
+.blogs1{
+  background-image: url(https://images2.imgbox.com/96/c7/80s8K9xx_o.jpg);
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(0,0,0,0.4);
+  background-blend-mode: darken;
+  padding: 30px;
+}
+
+.blogs2{
+  background-image: url(https://images2.imgbox.com/ae/19/ZZOS2bFe_o.jpg);
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(0,0,0,0.4);
+  background-blend-mode: darken;
+  padding: 30px;
+}
+
+.blogs3{
+  background-image: url(https://images2.imgbox.com/4c/70/U3fYqZgB_o.jpg);
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(0,0,0,0.4);
+  background-blend-mode: darken;
+  padding: 30px;
+}
+
+.blog-text{
+  padding-top: 7rem;
+}
+
+.blog-button{
+  padding: 10px 10px;
+  width: 10rem;
+}
+
+/*SIDE BY SIDE SECTION*/
+.side-by-side{
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .side-by-side{
+    display: block;
+  }
+}
+
+.new-section-title-s-by-s{
+  text-align: justify;
+}
+
+.underline6{
+    height: 5px;
+    width: 100px;
+    background-color: #ead94c;
+    margin: 0 0 15px;
+}
+
+.underline7{
+  height: 5px;
+  width: 135px;
+  background-color: #ead94c;
+  margin: 0 0 15px;
+}
+
+.enter-mailing-list{
+  width: 80%;
+  padding: 10px 40px 40px 20px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+}
+
+.mailing-list-button{
+  margin-top: 15px;
+  padding: 10px 10px;
+  width: 40%;
+}
+
+/*ABOUT.HTML*/
+.banner{
+  background-image: url(https://images2.imgbox.com/3d/7a/1iDUHu8D_o.jpg);
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0,0,0,0.4);
+  background-blend-mode: darken;
+  height: 45vh;
+  color: #fff;
+  position: relative;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bolder;
+  margin-bottom: 3rem;
+}
+
+.about-us{
+  position: absolute;
+  bottom: 10px;
+  left: 10%;
+}
+
+.about-meet-our-pastor{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-column-gap: 30px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+@media screen and (max-width: 768px){
+  .about-meet-our-pastor{
+    grid-template-columns: 100%;
+    width: 100%;
+    grid-row-gap: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.picture-frame{
+  border: 3px solid #ead94c;
+  padding: 20px;
+}
+
+.about-our-pastor-image{
+  background-image: url(https://images2.imgbox.com/b7/2e/CmgGELRI_o.jpg);
+  background-size: cover;
+  background-position: top;
+  height: 70vh;
+  color: #fff;
+  text-align: center;
+  font-family: "Roboto Condensed", sans-serif;
+  position: relative;
+}
+
+.position-absolute{
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+}
+
+@media screen and (max-width: 770px){
+  .about-our-pastor-image{
+    text-align: justify;
+  }
+  .position-absolute{
+    left: 30px;
+  }
+}
+
+.about-pastor-bio{
+  text-align: left;
+  padding-top: 130px;
+}
+
+@media screen and (max-width: 770px){
+  .about-pastor-bio{
+    padding-top: 10px;
+  }
+}
+
+.about-pastor-bio .about-section-title{
+  text-align: left;
+}
+
+.about-title-wordings{
+  margin-bottom: 0;
+}
+
+.about-underline{
+    height: 5px;
+    width: 83px;
+    background-color: #ead94c;
+    margin-bottom: 15px;
+}
+
+.about-our-staff{
+  margin-top: 5rem;
+}
+
+.about-our-staff .about-section-title{
+  text-align: center;
+}
+
+.about-our-staff .about-underline{
+    margin: 0 auto 15px;
+    width: 70px;
+}
+
+.staff-photos{
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-column-gap: 10px;
+  grid-row-gap: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.individual-staff-picture{
+  width: 95%;
+}
+
+@media screen and (max-width: 1000px){
+  .staff-photos{
+    grid-template-columns: 50% 50%;
+  }
+  .individual-staff-picture{
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .staff-photos{
+    grid-template-columns: 100%;
+  }
+  .individual-staff-picture{
+    width: 80%;
+  }
+}
+
+
+.individual-staff-picture-cover{
+  text-align: center;
+  border: 3px solid #ead94c;
+  padding: 5px;
+  position: relative;
+}
+
+.triangle{
+  width: 0;
+  height: 0;
+  border: 140px solid transparent;
+  border-right: 0;
+  border-bottom: 140px solid #ead94c;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.triangle-text{
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  color: #ead94c;
+}
+
+.about-mission-and-vision{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  color: #fff;
+  height: 100%;
+  background-color: #dd7373;
+}
+
+.about-mission{
+  background-color: #51a3a3;
+  padding: 3%;
+  padding-top: 8%;
+  clip-path: polygon(0% 0%, 90% 0%, 100% 100%, 0% 100%);
+}
+
+@media screen and (max-width: 768px){
+  .about-mission-and-vision{
+    grid-template-columns: 100%;
+  }
+  .about-mission{
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+
+.about-vision{
+  background-color: #dd7373;
+  padding: 3%;
+  padding-top: 8%;
+}
+
+.about-statistics{
+  background-image: url(https://images2.imgbox.com/32/f8/4biieVsD_o.jpg);
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(0,0,0,0.4);
+  background-blend-mode: darken;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  align-items: center;
+  height: 40vh;
+  text-align: center;
+  margin-top: 100px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .about-statistics{
+    display: block;
+    height: 100%;
+    padding: 5%;
+    margin-top: 50px;
+  }
+  .about-statistics-text{
+    margin: 25px;
+  }
+}
+
+.yellow-line{
+  height: 5px;
+  width: 65px;
+  background-color: #ead94c;
+  margin: 0 auto;
+}
+
+.about-statistics-text h1{
+  margin-bottom: 0;
+}
+
+
+/*SERMONS HTML PAGE*/
+
+.sermons-page{
+  display: grid;
+  grid-template-columns: 65% 35%;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.sermon-body{
+  padding: 20px 30px 20px 20px;
+}
+
+.sermon-body-image{
+  width: 90%;
+  height: 90vh;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.sermon-paragraph{
+  display: block;
+}
+
+.display-inline-block{
+  display: inline-block;
+}
+
+.sermon-icons{
+  display: inline;
+  padding: 5px 10px;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px #000;
+  text-align: right;
+}
+
+.display-inline-block{
+  color: #274f73;
+  margin: 3px 10px;
+}
+
+.display-inline-block:hover{
+  color: #ead94c;
+}
+
+.sermon-wordings{
+  margin-top: 20px;
+}
+
+.biblical-quote{
+  margin: 2rem 0;
+  padding-left: 3rem;
+  border-left: 5px solid #ead94c;
+}
+
+.recent-sermons{
+  padding: 10px;
+}
+
+.individual-recent-sermons{
+  text-align: center;
+  color: #fff;
+  height: 80vh;
+  padding-top: 60%;
+  border-radius: 3%;
+  box-shadow: 1px 1px 2px #000;
+}
+
+.individual-recent-sermons1{
+  background-image: url(https://images2.imgbox.com/a6/fa/JoMCYBl4_o.jpg);
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0,0,0,0.4);
+  background-blend-mode: darken;
+  width: 100%;
+}
+
+.individual-recent-sermons2{
+  background-image: url(https://images2.imgbox.com/ad/f5/rvb0hSkH_o.jpg);
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0,0,0,0.4);
+  background-blend-mode: darken;
+  width: 100%;
+  margin: 100px 0;
+}
+
+.individual-recent-sermons3{
+  background-image: url(https://images2.imgbox.com/11/e7/XAmwk5HC_o.jpg);
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0,0,0,0.4);
+  background-blend-mode: darken;
+  width: 100%;
+}
+
+@media screen and (max-width: 968px){
+  .sermons-page{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media screen and (max-width: 800px){
+  .sermons-page{
+    display: block;
+  }
+  .individual-recent-sermons{
+    height: auto;
+    padding-top: 30%;
+    padding-bottom: 5%;
+    width: 80%;
+  }
+  .sermon-body-image{
+    height: 100%;
+  }
+}
+
+.sermon-comments{
+   background-color: #f5f5f5;
+   padding-left: 70px;
+   padding-right: 70px;
+   padding-bottom: 70px;
+   margin-top: 3rem;
+}
+
+.sermon-comments .new-section-title{
+  text-align: left;
+}
+
+.reply{
+  cursor: pointer;
+  color: #274f73;
+  display: inline;
+}
+
+.reply:hover{
+  color: #ead94c;
+}
+
+.reply-tag{
+  text-decoration: none;
+}
+
+.sermon-comments-individual{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.sermon-comments-individual-middle{
+  padding-left: 80px;
+}
+
+.sermon-comments-individual-picture{
+  display: inline;
+  width: 80px;
+}
+
+.sermon-comments-individual-wordings{
+  display: inline;
+}
+
+.sermon-enter-your-comment.no-1{
+  width: 40%;
+  padding: 10px 40px 40px 20px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  display: inline;
+  margin-top: 2em;
+}
+
+.sermon-enter-your-comment.no-2{
+  width: 40%;
+  padding: 10px 40px 40px 20px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  display: inline;
+  margin-left: 10%;
+  margin-top: 2em;
+}
+
+.sermon-enter-your-comment.no-3{
+  width: 90%;
+  height: 150px;
+  padding: 0 20px 20px 20px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  display: block;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+@media screen and (max-width: 800px){
+  .sermon-enter-your-comment.no-1{
+    display: block;
+    width: 100%;
+    margin: 10px;
+    margin-left: 0;
+  }
+  .sermon-enter-your-comment.no-2{
+    display: block;
+    margin-left: 0;
+    width: 100%;
+    margin: 10px;
+    margin-left: 0;
+  }
+  .sermon-enter-your-comment.no-3{
+    display: block;
+    width: 100%;
+    margin: 10px;
+    margin-left: 0;
+  }
+  .sermon-comment-btn{
+    width: 50%;
+    margin: 10px;
+    margin-left: 0;
+  }
+}
+
+/*OUR MINISTRIES HTML PAGE*/
+.our-ministries-results-and-search{
+  display: grid;
+  grid-template-columns: 35% 60%;
+  margin-top: 50px;
+}
+
+.our-ministries-results{
+  padding-left: 30px;
+}
+
+.our-ministries-search{
+  padding-left: 30px;
+}
+
+.search-for-ministries{
+  width: 60%;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  display: inline;
+}
+
+.our-ministries-search-button{
+  width: 20%;
+  margin-left: 20px;
+}
+
+.ministries{
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  padding: 30px 30px;
+  padding-right: 50px;
+  margin-top: 50px;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.individual-ministry-1{
+  background-image: url(https://images2.imgbox.com/1d/59/17CukcED_o.jpg);
+}
+
+.individual-ministry-2{
+  background-image: url(https://images2.imgbox.com/d7/dc/huxeNNBq_o.jpg);
+}
+
+.individual-ministry-3{
+  background-image: url(https://images2.imgbox.com/a8/48/WavQsypt_o.jpg);
+}
+
+.individual-ministry-4{
+  background-image: url(https://images2.imgbox.com/60/2b/XCK14QMc_o.jpg);
+}
+
+.individual-ministry-5{
+  background-image: url(https://images2.imgbox.com/d0/40/skBtYbgU_o.jpg);
+}
+
+.individual-ministry-6{
+  background-image: url(https://images2.imgbox.com/85/6e/FhOKG2Ln_o.jpg);
+}
+
+.ministries-learn-more-button{
+  width: 50%;
+}
+
+.individual-ministry{
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0,0,0,0.6);
+  background-blend-mode: darken;
+  padding: 3%;
+  text-align: left;
+  height: 80vh;
+  position: relative;
+}
+
+.individual-ministry-text{
+  position: absolute;
+  bottom: 20px;
+  color: #fff;
+}
+
+.buttonz{
+  text-align: center;
+}
+
+.our-ministry-buttonz{
+  background-color: #fff;
+  width: 5%;
+  border: 3px solid #274f73;
+  color: #274f73;
+  margin-right: 5px;
+}
+
+.our-ministry-buttonz:hover{
+  background: #ead94c;
+  border: none;
+  color: #fff;
+}
+
+@media screen and (max-width: 1000px){
+  .ministries{
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .our-ministries-results-and-search{
+    display: block;
+  }
+  .our-ministries-search-button{
+    display: block;
+    margin: 20px 0;
+    width: 30%;
+  }
+  .ministries{
+    grid-template-columns: 100%;
+    padding-right: 20px;
+  }
+  .individual-ministry{
+    height: 70vh;
+  }
+  .individual-ministry-3{
+    background-position: left;
+    }
+}
+
+/* CONTACT HTML PAGE */
+.asterisk{
+  color: #B11226;
+  font-size: 20px;
+}
+
+.contact-form{
+  padding: 20px;
+}
+
+.c-f-name-and-email{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: 20px auto;
+}
+
+.contact-form-name, .contact-form-email {
+  width: 80%;
+  padding: 10px 40px 40px 20px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  display: inline;
+  margin-top: 1em;
+}
+
+.contact-form-subject, .contact-form-message{
+  width: 90%;
+  padding: 10px 40px 40px 20px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  display: inline;
+  margin-top: 1em;
+}
+
+.contact-form-message{
+  height: 30vh;
+}
+
+.c-f-subject, .c-f-message, .c-f-button{
+  margin: 20px auto;
+}
+
+.contact-form-button{
+  width: 20%;
+}
+
+@media screen and (max-width: 800px){
+  .c-f-name-and-email{
+    grid-template-columns: 100%;
+    margin: 20px auto;
+  }
+  .c-f-name{
+    margin: 20px 0;
+  }
+  .contact-form-button{
+    width: 45%;
+  }
+  .contact-form-name, .contact-form-email {
+    width: 90%;
+  }
+}
+
+/* EVENT HTML PAGE */
+.event-page{
+  margin-top: 80px;
+  text-align: center;
+}
+
+.eventz-button{
+  width: 100%;
+}
+
+.eventz-1{
+  background-image: url(https://media.istockphoto.com/photos/little-kids-schoolchildren-pupils-students-running-hurrying-to-the-picture-id1338737959?b=1&k=20&m=1338737959&s=170667a&w=0&h=Wj4IEck0-UYQquyOfnORvotapuarDJ4fABPDm-9ITV0=);
+}
+
+.eventz-2{
+  background-image: url(https://media.istockphoto.com/photos/african-american-girl-raising-her-hands-while-sitting-on-her-desk-in-picture-id1323715308?b=1&k=20&m=1323715308&s=170667a&w=0&h=MeG-_I7iI4HsElwGrxCgMm7P4QkJsWGmwvcrOyYnGlc=);
+}
+
+.eventz-3{
+  background-image: url(https://media.istockphoto.com/photos/ready-for-class-picture-id1341425688?b=1&k=20&m=1341425688&s=170667a&w=0&h=zmHk_tND9t1ipdc3SILUWplKldS_lePoUXKJ3qtJFXo=);
+}
+
+.eventz-4{
+  background-image: url(https://media.istockphoto.com/photos/exterior-view-of-a-typical-american-school-building-picture-id1317007945?b=1&k=20&m=1317007945&s=170667a&w=0&h=L6exAWhMIvHk3ndOQdnRt6WNGfzcsh54WtCAVbO8NSk=);
+}
+
+.eventz-5{
+  background-image: url(https://media.istockphoto.com/photos/empty-classroom-picture-id1340516763?b=1&k=20&m=1340516763&s=170667a&w=0&h=zA05D-poPoIdoa06_vL2VLDOdBpPzMUKxUphHhx22jc=);
+}
+
+.eventz-6{
+  background-image: url(https://media.istockphoto.com/photos/african-american-female-student-studying-from-home-and-taking-notes-picture-id1300822206?b=1&k=20&m=1300822206&s=170667a&w=0&h=ZBnOh6rS_r1qQAy37llLvXgjByrVNoahWivH28T0ZBA=);
+}
+
+
+
+/*DONATIONS HTML PAGE*/
+#donation-section{
+  padding: 3%;
+}
+
+.form-radio{
+  display: none;
+}
+
+.display-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 4fr;
+  grid-gap: 50px;
+}
+
+.form-label-radio{
+  text-align: center;
+  box-shadow: 0 4px 12px -4px rgba(0,0,0,0.35);
+  padding: 20px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+input[type="radio"]:checked + .form-label-radio{
+  background-color: #ead94c;
+  color: #fff;
+}
+
+.form-input{
+  width: 90%;
+  padding: 10px 30px 30px 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  display: inline;
+}
+
+.form-input-enter-an-amount{
+  width: 90%;
+  padding: 10px 30px 30px 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  display: inline;
+}
+
+.display-grid-frequency{
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-gap: 0;
+}
+
+.form-label-radio2{
+  text-align: center;
+  box-shadow: 0 4px 12px -4px rgba(0,0,0,0.35);
+  padding: 20px 120px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+input[type="radio"]:checked + .form-label-radio2{
+  background-color: #ead94c;
+  color: #fff;
+}
+
+.display-grid-donation-type{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  place-items: center;
+}
+
+.form-label-radio3{
+  text-align: center;
+  box-shadow: 0 4px 12px -4px rgba(0,0,0,0.35);
+  padding: 20px 70px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+
+input[type="radio"]:checked + .form-label-radio3{
+  background-color: #ead94c;
+  color: #fff;
+}
+
+.display-grid-payment-type{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  place-items: center;
+}
+
+.form-label-radio4{
+  text-align: center;
+  box-shadow: 0 4px 12px -4px rgba(0,0,0,0.35);
+  padding: 20px 250px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+input[type="radio"]:checked + .form-label-radio4{
+  background-color: #ead94c;
+  color: #fff;
+}
+
+.debit-card-payment{
+  display: none;
+  transform: translateX(-50px);
+  transition: transform 2s ease-in;
+}
+
+.debit-card-payment-active{
+  display: block;
+  transform: translateX(0);
+}
+
+.debit-card-payment-display-grid{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 30px;
+  padding: 0 40px 0 80px;
+}
+
+.debit-card-payment-field-button{
+  width: 90%;
+}
+
+.paypal-payment{
+  padding: 0 40px 0 80px;
+  display: none;
+}
+
+.paypal-payment-active{
+  display: block;
+}
+
+.btn-paypal-payment{
+  width: 35%;
+}
+
+@media screen and (max-width: 768px){
+  .display-grid{
+    grid-template-columns: 50% 50%;
+    grid-gap: 40px;
+    grid-row-gap: 10px;
+    overflow-x: hidden;
+  }
+  .form-label-radio{
+    padding: 10px 20%;
+  }
+  .form-input-enter-an-amount{
+    display: block;
+    width: 190%;
+    height: 50px;
+  }
+  .display-grid-frequency{
+    display: block;
+  }
+  .form-label-radio2{
+    padding: 20px 40px;
+  }
+  .display-grid-donation-type{
+    display: block;
+  }
+  .form-label-radio3{
+    padding: 20px 3.5em;
+  }
+  .display-grid-payment-type{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 10px;
+    overflow-x: hidden;
+  }
+  .form-label-radio4{
+    padding: 20px 60px;
+  }
+  .debit-card-payment-display-grid{
+    display: block;
+    padding: 0 10px 0 10px;
+  }
+  .form-input{
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+  }
+  .debit-card-payment-field-button{
+    width: 100%;
+  }
+  .btn-paypal-payment{
+    width: 100%;
+  }
+  .paypal-payment{
+    padding: 0 20px 0 20px;
+    display: none;
+  }
+  .paypal-payment-active{
+    display: block;
+  }
+}
+
+/*JAVASCRIPT ANIMATIONS*/
+
+.up-and-down-animation{
+  transform: translateY(200px);
+  opacity: 0;
+  transition: all 2s ease;
+}
+.up-and-down-animation-active{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.left-animation{
+  transform: translateX(-200px);
+  opacity: 0;
+  transition: all 2s ease;
+}
+
+.left-animation-active{
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.right-animation{
+  transform: translateX(200px);
+  opacity: 0;
+  transition: all 2s ease;
+}
+
+.right-animation-active{
+  transform: translateX(0);
+  opacity: 1;
+}
